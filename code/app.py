@@ -9,12 +9,8 @@ items = []
 
 class Item(Resource):
     def get(self, name):
-        for item in items:
-            print('here in the loop')
-            if item['name'] == name:
-                print('here in the if statment')
-                return item
-        return {'item': 'Does not exit in the database'}, 404
+        item = next(filter(lambda x: x['name'] == name, items), None)
+        return {'item': item}, 200 if item else 404
 
     def post(self, name):
         data = request.get_json()
