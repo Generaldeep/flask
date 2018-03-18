@@ -21,6 +21,11 @@ class Item(Resource):
         items.append(item)
         return item, 201
 
-api.add_resource(Item, '/item/<string:name>')
+class ReturnAllItems(Resource):
+    def get(self):
+        return {'Items': items}, 200
 
-app.run(port = 4000)
+api.add_resource(Item, '/item/<string:name>')
+api.add_resource(ReturnAllItems, '/items')
+
+app.run(port = 4000, debug=True)
