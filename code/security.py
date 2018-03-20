@@ -21,3 +21,8 @@ userid_mapping = {
         'password': 'whatitdo'
     }
 }
+
+def authenticate(username, password):
+    user = username_mapping.get(username, None)
+    if user and user.password == password:
+        return user
