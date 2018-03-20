@@ -4,6 +4,7 @@ users = [
     User(1, 'deep', 'whatitdo')
 ]
 
+# set comprehension with key pair values
 username_mapping = { u.username: u for u in users}
 userid_mapping = { u.id: u for u in users }
 
