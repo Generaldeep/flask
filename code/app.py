@@ -39,7 +39,7 @@ class Item(Resource):
             item = {'name': name, 'price': data['price']}
             items.append(item)
         else:
-            item.update(item)
+            item.update(data)
         return item
 
 class ReturnAllItems(Resource):
