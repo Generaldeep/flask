@@ -7,10 +7,16 @@ cursor = connection.cursor()
 create_table = 'CREATE TABLE users (id int, username text, password text)'
 cursor.execute(create_table)
 
-user = (1, 'deep', 'blahblah')
-
 insert_query = 'INSERT INTO users VALUES (?, ?, ?)'
-cursor.execute(insert_query, user)
+
+
+users = [
+    (1, 'deep', 'blahblah'),
+    (2, 'deepmoinster', 'blahblah'),
+    (3, 'moinster', 'blahblah')
+]
+
+cursor.executemany(insert_query, users)
 
 connection.commit()
 connection.close()
