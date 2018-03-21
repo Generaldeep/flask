@@ -14,3 +14,11 @@ class User:
 
         query = 'SELECT * FROM users WHERE username=?'
         result = cursor.execute(query, (username, ))
+        row = result.fetchone()
+        if row:
+            user = User(row[0], row[1], row[2])
+        else:
+            user = None
+
+        connection.close()
+        return user
