@@ -61,6 +61,7 @@ class UserRegister(Resource):
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 
+        # null value auto increments user id
         query = 'INSERT INTO users VALUES (NULL, ?, ?)'
         cursor.execute(query, (data['username'], data['password']))
 
