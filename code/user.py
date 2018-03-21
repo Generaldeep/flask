@@ -17,7 +17,7 @@ class User:
         result = cursor.execute(query, (username, ))
         row = result.fetchone()
         if row:
-            user = cls(row[0], row[1], row[2])
+            user = cls(*row)
         else:
             user = None
 
@@ -33,7 +33,7 @@ class User:
         result = cursor.execute(query, (_id, ))
         row = result.fetchone()
         if row:
-            user = cls(row[0], row[1], row[2])
+            user = cls(*row)
         else:
             user = None
 
