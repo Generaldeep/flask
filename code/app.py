@@ -16,5 +16,5 @@ api.add_resource(Item, '/item/<string:name>')
 api.add_resource(ReturnAllItems, '/items')
 api.add_resource(UserRegister, '/register')
 
-if __name__ == 'main':
-    app.run(port = 4000, debug=True)
+
+app.run(port = 4000, debug=True)
