@@ -7,6 +7,7 @@ from resources.user import UserRegister
 from resources.item import Item, ReturnAllItems
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_TRACK_MODIFICATINS'] = False
 app.secret_key = 'thisisasecretykey'
 api = Api(app)
 
@@ -17,4 +18,7 @@ api.add_resource(ReturnAllItems, '/items')
 api.add_resource(UserRegister, '/register')
 
 
-app.run(port = 4000, debug=True)
+if __name__ == '__main__':
+    from db import db
+    db.init_app(app)
+    app.run(port = 4000, debug=True)
