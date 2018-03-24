@@ -23,14 +23,7 @@ class UserRegister(Resource):
             return {'message': 'A user with that username already exits'}, 400
 
 
-        connection = sqlite3.connect('data.db')
-        cursor = connection.cursor()
-
-        # null value auto increments user id
-        query = 'INSERT INTO users VALUES (NULL, ?, ?)'
-        cursor.execute(query, (data['username'], data['password']))
-
-        connection.commit()
-        connection.close()
+        user = UserModel(**data)
+        user.save_to_db()
 
         return {'message': 'User created successfully'}, 201
