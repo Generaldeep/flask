@@ -12,12 +12,14 @@ class Item(Resource):
         help = 'This field cannot be left blank'
     )
 
+
     @jwt_required()
     def get(self, name):
         item = ItemModel.find_by_name(name)
         if item:
             return item.json()
         return {'message': 'Item not found'}, 400
+
 
 
     def post(self, name):
