@@ -8,9 +8,6 @@ from resources.item import Item, ReturnAllItems
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://gurdipsingh:test123@localhost/testdb'
-# app.config['SQLALCHEMY_TRACK_MODIFICATINS'] = False
-# app.secret_key = 'thisisasecretykey'
 api = Api(app)
 
 @app.before_first_request
