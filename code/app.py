@@ -7,10 +7,10 @@ from resources.user import UserRegister
 from resources.item import Item, ReturnAllItems
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://gurdipsingh:test123@localhost/testdb'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATINS'] = False
-app.secret_key = 'thisisasecretykey'
+app.config.from_pyfile('config.py')
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://gurdipsingh:test123@localhost/testdb'
+# app.config['SQLALCHEMY_TRACK_MODIFICATINS'] = False
+# app.secret_key = 'thisisasecretykey'
 api = Api(app)
 
 @app.before_first_request
